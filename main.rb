@@ -38,4 +38,4 @@ else
 
 end
 
-  
+puts "Thanks for visiting the Coder Bank"
