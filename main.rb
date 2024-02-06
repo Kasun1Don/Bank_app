@@ -13,43 +13,51 @@
 puts "Welcome to the Coder Bank, Please enter your name"
 name = gets.chomp
 
-puts "hello #{name}, please choose from the options below
-D - Deposit
-W - Withdraw
-B - Show Balance"
-
-user_input = gets.chomp.capitalize
-balance = 0
-# conditional statement: if else logic to take different path based on weather the condition was evaluated to true
-
-
-if user_input == 'D'
-  puts "How much would you like to deposit?"
+while true
+  puts "hello #{name}, please choose from the options below
+  D - Deposit
+  W - Withdraw
+  B - Show Balance 
+  E - Exit"
   
-    input = gets.chomp
-    amount = input.to_i
-  # converts input to an integer
+  
+  user_input = gets.chomp.capitalize
+  balance = 0
+  # conditional statement: if else logic to take different path based on weather the condition was evaluated to true
+  
+  
+  if user_input == 'D'
+    puts "How much would you like to deposit?"
+    
+      input = gets.chomp
+      amount = input.to_i
+    # converts input to an integer
+      if amount > 0
+        balance = balance + amount
+        puts "Thanks, you have successfull deposited $#{amount}"
+      else 
+        puts "Invalid amount, please enter value > 0"
+      end
+  elsif user_input == 'W'
+    puts "How much would you like to withdraw?"
+      input = gets.chomp
+      amount = input.to_i
     if amount > 0
-      balance = balance + amount
-      puts "Thanks, you have successfull deposited $#{amount}"
+        balance = balance - amount
+        puts "You withdrew $#{amount}, take the cash"
     else 
       puts "Invalid amount, please enter value > 0"
     end
-elsif user_input == 'W'
-  puts "How much would you like to withdraw?"
-    input = gets.chomp
-    amount = input.to_i
-  if amount > 0
-      balance = balance - amount
-      puts "You withdrew $#{amount}, take the cash"
+  elsif user_input == 'B'
+    puts "Your balance is $#{balance}"
+
+  elsif user_input == 'E'
+    puts "Exiting the application"
+    break
   else 
-    puts "Invalid amount, please enter value > 0"
+    puts "Invalid Entry, Try Again"
+  
+  
   end
-elsif user_input == 'B'
-  puts "Your balance is $#{balance}" 
-else 
-  puts "Invalid Entry, Try Again"
-
 end
-
 puts "Thanks for visiting the Coder Bank"
