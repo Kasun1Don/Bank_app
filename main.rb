@@ -22,19 +22,33 @@ user_input = gets.chomp.capitalize
 balance = 0
 # conditional statement: if else logic to take different path based on weather the condition was evaluated to true
 
+
 if user_input == 'D'
   puts "How much would you like to deposit?"
-  amount = gets.chomp.to_i
-  balance = balance + amount
-  puts "Thanks, you have successfull deposited $#{amount}"
+  
+    input = gets.chomp
+    amount = input.to_i
+  # converts input to an integer
+    if amount > 0
+      balance = balance + amount
+      puts "Thanks, you have successfull deposited $#{amount}"
+    else 
+      puts "Invalid amount, please enter value > 0"
+    end
 elsif user_input == 'W'
   puts "How much would you like to withdraw?"
-  amount = gets.chomp.to_i
-  balance = balance - amount
-  puts "You withdrew $#{amount}, take the cash"
-  
+    input = gets.chomp
+    amount = input.to_i
+  if amount > 0
+      balance = balance - amount
+      puts "You withdrew $#{amount}, take the cash"
+  else 
+    puts "Invalid amount, please enter value > 0"
+  end
+elsif user_input == 'B'
+  puts "Your balance is $#{balance}" 
 else 
-  puts "your balance is $#{balance}"
+  puts "Invalid Entry, Try Again"
 
 end
 
