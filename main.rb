@@ -9,11 +9,13 @@
 #  if the use selected 'B ' show the balance
 
 #Flowchart:
+$balance = 0 
+#global variable to carry the balance while the application runs
 
 puts "Welcome to the Coder Bank, Please enter your name"
 name = gets.chomp
 
-while true
+while true #loop
   puts "hello #{name}, please choose from the options below
   D - Deposit
   W - Withdraw
@@ -22,7 +24,7 @@ while true
   
   
   user_input = gets.chomp.capitalize
-  balance = 0
+  
   # conditional statement: if else logic to take different path based on weather the condition was evaluated to true
   
   
@@ -33,7 +35,7 @@ while true
       amount = input.to_i
     # converts input to an integer
       if amount > 0
-        balance = balance + amount
+        $balance = $balance + amount
         puts "Thanks, you have successfull deposited $#{amount}"
       else 
         puts "Invalid amount, please enter value > 0"
@@ -43,13 +45,18 @@ while true
       input = gets.chomp
       amount = input.to_i
     if amount > 0
-        balance = balance - amount
-        puts "You withdrew $#{amount}, take the cash"
+        if amount <= $balance
+          #if the amount is less than or equal to the balance, incase of insuff funds
+          $balance = $balance - amount
+          puts "You withdrew $#{amount}, take the cash"
+        else 
+          puts "Insufficient funds, your balance is $#{$balance}"
+        end
     else 
       puts "Invalid amount, please enter value > 0"
     end
   elsif user_input == 'B'
-    puts "Your balance is $#{balance}"
+    puts "Your balance is $#{$balance}"
 
   elsif user_input == 'E'
     puts "Exiting the application"
