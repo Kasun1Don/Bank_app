@@ -1,6 +1,6 @@
 # Ruby on Replit
 
-Simple Ruby terminal app for an ATM that can remember changes in a user's account balance. 
+Lesson & Challenge: Simple Ruby terminal app for an ATM that can remember changes in a user's account balance. 
 
 ## Running the repl
 
